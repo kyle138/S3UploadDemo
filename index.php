@@ -32,7 +32,7 @@ $s3client = new Aws\S3\S3Client([
 echo "<html>\r\n";
 
 // Check if DEL form submited
-if($_POST['submit']=='Delete' && isset($fileKey)) {
+if($submit=='Delete' && isset($fileKey)) {
   $s3client->deleteObject(array(
         'Bucket' => $s3Bucket,
         'Key'    => $fileKey
@@ -48,7 +48,7 @@ foreach ($o_iter as $o) {
     echo "<form enctype='multipart/form-data' name='fileDELForm' method='post' action='index.php' style='border:1px;' >";
     $prefixKey=explode("/",$o['Key']);
     if($prefixKey[0]=='public') {
-      echo "<a href='http://$s3Bucket/".$o['Key']."'>";
+      echo "<a href='http://".$s3Bucket."/".$o['Key']."'>";
       echo "<img src='http://$s3Bucket/".$o['Key']."' style='width:100px;height:100px;'/></a>";
       echo "<input type='hidden' name='fileKey' id='fileKey' value='".$o['Key']."' />";
       echo "{$o['Key']}";
