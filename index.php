@@ -16,7 +16,7 @@ $credentials = new Aws\Credentials\Credentials($key,$secret);
 //Initialization of initializing initial variables, initially.
 $fileUL = isset($_POST['fileUL']) ? $_POST['fileUL'] : '';
 $prefix = isset($_POST['prefix']) ? $_POST['prefix'].'/' : '';
-$s3Bucket = isset($_POST['s3Bucket']) ? $_POST['s3Bucket'] : 'files.hartenergy.com';
+$s3Bucket = isset($_POST['s3Bucket']) ? $_POST['s3Bucket'] : $defaultBucket;
 $fileKey = isset($_POST['fileKey']) ? $_POST['fileKey'] : '';
 $submit = isset($_POST['submit']) ? $_POST['submit'] : '';
 $fileName=$fileType='';
