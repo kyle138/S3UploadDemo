@@ -30,6 +30,7 @@ $s3client = new Aws\S3\S3Client([
 ]);
 
 echo "<html>\r\n";
+echo " <h1>Bucket:: $s3Bucket</h1>\r\n";
 
 // Check if DEL form submited
 if($submit=='Delete' && isset($fileKey)) {
@@ -112,7 +113,7 @@ if($submit=='Upload') {
 
 ?>
   <form enctype='multipart/form-data' name='fileULForm' method='post' action='index.php' >
-    <input type='hidden' name='s3Bucket' id='s3Bucket' value='files.hartenergy.com' />
+    <input type='text' name='s3Bucket' id='s3Bucket' value='<?php echo $s3Bucket; ?>' />
     <select name='prefix' id='prefix'>
       <option value='public'>public</option>
       <option value='QSA'>QSA</option>
